@@ -35,13 +35,15 @@ class Spaceship:    #para agregar imagen necesitamos posicion
     
     def move_left(self):
         #restriccion para que no salga de los limites 
-        if self.rect.left > 0:
-            self.rect.x -= 10 
+        self.rect.x -= 10 
+        if self.rect.left < 0:
+            self.rect.x = SCREEN_WIDTH - 40
     
     def move_right(self):
         #restriccion para que no salga de los limites 
-        if self.rect.right < SCREEN_WIDTH:
-            self.rect.x += 10 
+        self.rect.x += 10 
+        if self.rect.right > SCREEN_WIDTH:
+            self.rect.x = 0
     
 
 
