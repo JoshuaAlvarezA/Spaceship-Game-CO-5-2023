@@ -1,11 +1,11 @@
 import random
 from game.utils.constants import SCREEN_WIDTH, SCREEN_HEIGHT
 
-class Enemy:
+class Enemy_4:
     X_POS_LIST = [50, 100, 150, 200, 250 , 300, 350, 400, 450, 500]  #pocision random
     Y_POS = 20
-    SPEED_X = 5
-    SPEED_Y = 1
+    SPEED_X = 10
+    SPEED_Y = 2
     LEFT = 'left'  # asignar valores constante, buena practica para evitar error con string
     RIGHT = 'right'
     MOV_X = [LEFT, RIGHT]
