@@ -4,8 +4,8 @@ from game.utils.constants import SCREEN_WIDTH, SCREEN_HEIGHT
 from game.components.enemies.enemy import Enemy
 
 
-class Enemy_3(Enemy):
-    X_POS_LIST = [50, 100, 150, 200, 250 , 300, 350, 400, 450, 500]  #pocision random
+class Alien(Enemy):
+    X_POS_LIST = [i for i in range(50, SCREEN_WIDTH, 50)]  #pocision random
     Y_POS = 20
     SPEED_X = 5
     SPEED_Y = 3
@@ -25,11 +25,11 @@ class Enemy_3(Enemy):
         # self.index = 0  #contador de desplazamiento 
         super().__init__(self.image)
 
-    def update (self):
+    def move (self):
 
         sinusoidal_movement = self.WAVE_AMPLITUDE * math.sin(self.WAVE_FREQUENCY * self.index)
         self.rect.y += self.SPEED_Y + sinusoidal_movement 
-        super().update()
+        super().move()
         # if self.mov_x == self.LEFT:
         #     self.rect.x -= self.SPEED_X
         #     if self.index > self.INTERVAL or self.rect.x <= 0:

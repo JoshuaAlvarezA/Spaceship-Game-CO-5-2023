@@ -1,6 +1,8 @@
 import random
 from game.utils.constants import SCREEN_WIDTH, SCREEN_HEIGHT, BULLET_ENEMY_TYPE
 
+
+
 class Enemy:
     X_POS_LIST = [i for i in range(50, SCREEN_WIDTH, 50)]  #pocision random
     Y_POS = 20
@@ -49,9 +51,9 @@ class Enemy:
 
         self.index += 1
 
-        if self.rect.y > SCREEN_HEIGHT:
-            self.rect.y = -10 
-            self.rect.x = random.choice(self.X_POS_LIST)
+        # if self.rect.y > SCREEN_HEIGHT:
+        #     self.rect.y = -10 
+        #     self.rect.x = random.choice(self.X_POS_LIST)
 
 
     def shoot(self, bullet_handler):

@@ -2,11 +2,11 @@
 #escrbir el mismo codigo siempre
 
 import pygame
-from game.components.enemies.enemy_4 import Enemy_4
+from game.components.enemies.golden_destroyer import Golden_Destroyer
 from game.utils.constants import ENEMY_4
 
 
-class Ship_4(Enemy_4):
+class Golden_Ship(Golden_Destroyer):
     WIDTH = 80   #definir tambien en spaceship
     HEIGTH = 60
 

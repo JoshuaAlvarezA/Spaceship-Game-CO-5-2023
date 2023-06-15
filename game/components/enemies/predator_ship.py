@@ -2,17 +2,17 @@
 #escrbir el mismo codigo siempre
 
 import pygame
-from game.components.enemies.enemy_3 import Enemy_3
-from game.utils.constants import ENEMY_3
+from game.components.enemies.predator import Predator
+from game.utils.constants import ENEMY_2
 
 
-class Ship_3(Enemy_3):
-    WIDTH = 100   #definir tambien en spaceship
-    HEIGTH = 120
+class Predator_Ship(Predator):
+    WIDTH = 60   #definir tambien en spaceship
+    HEIGTH = 80
 
 
     def __init__(self):
-        self.image = ENEMY_3
+        self.image = ENEMY_2
         self.image = pygame.transform.scale(self.image, (self.WIDTH, self.HEIGTH))
         super().__init__(self.image)   
 
