@@ -6,7 +6,7 @@ from game.components.enemies.golden_destroyer import Golden_Destroyer
 from game.utils.constants import ENEMY_4
 
 
-class Golden_Ship(Golden_Destroyer):
+class GoldenShip(Golden_Destroyer):
     WIDTH = 80   #definir tambien en spaceship
     HEIGTH = 60
 

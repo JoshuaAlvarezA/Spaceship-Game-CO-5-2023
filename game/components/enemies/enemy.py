@@ -3,7 +3,7 @@ from game.utils.constants import SCREEN_WIDTH, SCREEN_HEIGHT, BULLET_ENEMY_TYPE
 
 
 
-class Enemy:
+class Enemy:    
     X_POS_LIST = [i for i in range(50, SCREEN_WIDTH, 50)]  #pocision random
     Y_POS = 20
     SPEED_X = 5

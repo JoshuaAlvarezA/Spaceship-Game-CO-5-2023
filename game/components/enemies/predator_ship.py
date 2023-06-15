@@ -6,7 +6,7 @@ from game.components.enemies.predator import Predator
 from game.utils.constants import ENEMY_2
 
 
-class Predator_Ship(Predator):
+class PredatorShip(Predator):
     WIDTH = 60   #definir tambien en spaceship
     HEIGTH = 80
 

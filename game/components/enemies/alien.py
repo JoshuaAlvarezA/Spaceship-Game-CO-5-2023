@@ -8,7 +8,7 @@ class Alien(Enemy):
     X_POS_LIST = [i for i in range(50, SCREEN_WIDTH, 50)]  #pocision random
     Y_POS = 20
     SPEED_X = 5
-    SPEED_Y = 3
+    SPEED_Y = 1
     LEFT = 'left'  # asignar valores constante, buena practica para evitar error con string
     RIGHT = 'right'
     MOV_X = [LEFT, RIGHT]

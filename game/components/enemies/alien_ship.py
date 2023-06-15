@@ -6,7 +6,7 @@ from game.components.enemies.alien import Alien
 from game.utils.constants import ENEMY_3
 
 
-class Alien_Ship(Alien):
+class AlienShip(Alien):
     WIDTH = 100   #definir tambien en spaceship
     HEIGTH = 120
 

@@ -1,5 +1,5 @@
 import pygame
-from game.utils.constants import SPACESHIP, SCREEN_WIDTH, SCREEN_HEIGHT
+from game.utils.constants import SPACESHIP, SCREEN_WIDTH, SCREEN_HEIGHT, BULLET_SPACESHIP_TYPE
 
 class Spaceship:    #para agregar imagen necesitamos posicion
     X_POS = (SCREEN_WIDTH // 2) - 40
@@ -7,6 +7,7 @@ class Spaceship:    #para agregar imagen necesitamos posicion
     WIDTH = 40
     HEIGHT = 60
     SPEED = 10
+    SHOOTING_TIME = 5000
 #con self se vuelve atributo, python lo convierte automaticamente 
 
     def __init__(self):
@@ -16,8 +17,9 @@ class Spaceship:    #para agregar imagen necesitamos posicion
         self.rect.x = self.X_POS
         self.rect.y = self.Y_POS
         self.is_alive = True
+        self.shooting_time = 0
 
-    def update(self, user_input):
+    def update(self, user_input, bullet_handler):
         #se debe mover solo si se oprime tecla
         if user_input [pygame.K_LEFT]:
             self.move_left()
@@ -27,13 +29,14 @@ class Spaceship:    #para agregar imagen necesitamos posicion
             self.move_right()
         elif user_input [pygame.K_UP]:
             self.move_up()
+        elif user_input [pygame.K_SPACE]:
+            self.shoot(bullet_handler)
+
+        
 
     
     def draw (self, screen):
         screen.blit(self.image, self.rect)
-
-    
-    
     
     # vamos a crear metodos para movimiento 
     
@@ -62,4 +65,15 @@ class Spaceship:    #para agregar imagen necesitamos posicion
         #restriccion para que no salga de los limites 
         if self.rect.y < SCREEN_HEIGHT - self.HEIGHT:
             self.rect.y += self.SPEED 
+
+
+    def shoot(self, bullet_handler):
+        self.shooting_time +=1
+        bullet_handler.add_bullet(BULLET_SPACESHIP_TYPE, self.rect.center)
+        if self.shooting_time % self.SHOOTING_TIME == 0:
+            bullet_handler.add_bullet(BULLET_SPACESHIP_TYPE, self.rect.center)
+
+
+    
+
     

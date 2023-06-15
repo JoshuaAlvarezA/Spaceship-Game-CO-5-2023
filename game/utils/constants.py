@@ -34,5 +34,6 @@ ENEMY_4 = pygame.image.load(os.path.join(IMG_DIR, "Enemy/enemy_DL.png"))
 FONT_STYLE = 'freesansbold.ttf'
 
 BULLET_ENEMY_TYPE = 'enemy'
+BULLET_SPACESHIP_TYPE = 'ally'
 #agregar bullet usuario aqui 
 
