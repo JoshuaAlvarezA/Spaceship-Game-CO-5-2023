@@ -9,6 +9,8 @@ class BulletHandler:
 
     def update(self, player, enemy_handler):
         for bullet in self.bullets:
+            if (not bullet.show):
+                self.remove_bullet(bullet)
             if bullet.type == BULLET_SPACESHIP_TYPE:
                 bullet.update(enemy_handler)
             elif bullet.type == BULLET_ENEMY_TYPE:
@@ -27,3 +29,6 @@ class BulletHandler:
             self.bullets.append(BulletEnemy(center))
         elif type == BULLET_SPACESHIP_TYPE:
             self.bullets.append(BulletShip(center))
+
+    def remove_bullet(self, bullet):
+        self.bullets.remove(bullet)

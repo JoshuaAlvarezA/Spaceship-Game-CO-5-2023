@@ -21,7 +21,7 @@ class EnemyHandler:
         # self.list_ships = [Ship(), Predator_Ship(), Alien_Ship(), Golden_Ship()]
         # self.ship = random.choice(self.list_ships)
 
-    def update(self, bullet_handler):
+    def update(self, bullet_handler, player):
         ship_choice = random.choice(self.LIST_SHIP)
         if ship_choice == self.SHIP:
             self.add_enemy(Ship())
@@ -33,6 +33,7 @@ class EnemyHandler:
             self.add_enemy(GoldenShip())
         
         for enemy in self.enemies:
+            self.colission_player(enemy,player)
             enemy.update(bullet_handler)
             if not enemy.is_alive:
                 self.remove_enemy(enemy)
@@ -49,6 +50,10 @@ class EnemyHandler:
             
     def remove_enemy(self, enemy):
         self.enemies.remove(enemy)
+
+    def colission_player(self, enemy, player):
+        if(enemy.rect.colliderect(player.rect)):
+            player.is_alive = False
 
     
         

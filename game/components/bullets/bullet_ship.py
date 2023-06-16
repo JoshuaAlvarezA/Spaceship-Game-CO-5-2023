@@ -19,3 +19,4 @@ class BulletShip(Bullet):
         for enemy in enemy_handler.enemies:
          if self.rect.colliderect(enemy.rect):
             enemy.is_alive = False
+            self.show = False
