@@ -22,6 +22,7 @@ class Enemy:
         self.mov_x = random.choice(self.MOV_X)
         self.index = 0  #contador de desplazamiento 
         self.is_alive = True
+        self.is_destroyed = False
         self.shooting_time = 0   # puede tener el nombre, pero es atributo q puede cambiar 
 
     def update (self, bullet_handler):

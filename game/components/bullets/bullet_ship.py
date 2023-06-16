@@ -14,9 +14,13 @@ class BulletShip(Bullet):
         super().__init__(self.image, center, BULLET_SPACESHIP_TYPE)
 
 
-    def update(self, enemy_handler):
+    def update(self, enemy_handler): #enemy implementation for review
         self.rect.y -= self.SPEED
         for enemy in enemy_handler.enemies:
-         if self.rect.colliderect(enemy.rect):
-            enemy.is_alive = False
-            self.show = False
+            if self.rect.colliderect(enemy.rect):
+                enemy.is_alive = False
+                self.show = False
+
+            else: #implementation for review
+                enemy.is_destroyed = True
+           

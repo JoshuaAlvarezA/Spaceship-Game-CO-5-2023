@@ -6,6 +6,7 @@ from game.components.bullets.bullet_ship import BulletShip
 class BulletHandler:
     def __init__(self):
         self.bullets = []  #todas las balas del juego 
+        self.number_enemy_destroyed = 0
 
     def update(self, player, enemy_handler):
         for bullet in self.bullets:
@@ -32,3 +33,6 @@ class BulletHandler:
 
     def remove_bullet(self, bullet):
         self.bullets.remove(bullet)
+
+    def reset(self):
+        self.bullets = []
