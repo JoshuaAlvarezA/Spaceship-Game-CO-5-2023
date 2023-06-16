@@ -20,7 +20,5 @@ class BulletShip(Bullet):
             if self.rect.colliderect(enemy.rect):
                 enemy.is_alive = False
                 self.show = False
-
-            else: #implementation for review
                 enemy.is_destroyed = True
            
