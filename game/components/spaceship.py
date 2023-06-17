@@ -76,6 +76,10 @@ class Spaceship:    #para agregar imagen necesitamos posicion
         if self.shooting_time % self.SHOOTING_TIME == 0:
             bullet_handler.add_bullet(BULLET_SPACESHIP_TYPE, self.rect.center)
 
+    def reset(self):
+        self.rect.x = self.X_POS
+        self.rect.y = self.Y_POS
+        self.is_alive = True    
 
     def set_power_image(self, image):
         self.image = image
@@ -84,13 +88,6 @@ class Spaceship:    #para agregar imagen necesitamos posicion
     def set_default_image(self):
         self.image = SPACESHIP
         self.image = pygame.transform.scale(self.image, (40, 60))
-
-
-    def reset(self):
-        self.rect.x = self.X_POS
-        self.rect.y = self.Y_POS
-        self.is_alive = True    
-
 
     
 

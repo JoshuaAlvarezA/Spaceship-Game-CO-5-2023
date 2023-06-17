@@ -14,7 +14,7 @@ class PowerHandler:
     def generate_power(self):
         power = Shield()
         self.powers.append(power)
-        self.when_appears = random.randint (3000, 7000)
+        self.when_appears += random.randint (3000, 7000)
 
 
     def update (self, player):

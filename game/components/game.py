@@ -25,7 +25,7 @@ class Game:
         self.score = 0 
         self.number_death = 0
         self.max_score = 0
-        self.power_handler = 0
+        self.power_handler = PowerHandler()
 
     def run(self):
         # Game loop: events - update - draw
@@ -53,7 +53,7 @@ class Game:
             self.enemy_handler.update(self.bullet_handler, self.player)
             self.bullet_handler.update(self.player, self.enemy_handler)
             self.score = self.enemy_handler.number_enemy_destroyed
-            self.power_handler.update()
+            self.power_handler.update(self.player)
             if not self.player.is_alive:
                 pygame.time.delay(300)
                 self.playing = False
@@ -68,6 +68,7 @@ class Game:
             self.bullet_handler.draw(self.screen)
             self.draw_score()
             self.max_scores()
+            self.power_handler.draw(self.screen)
             self.draw_power_time()
         else:
             self.draw_menu()
@@ -116,7 +117,7 @@ class Game:
 
     def draw_power_time(self):
         if self.player.has_power:
-            power_time = round((self.player.power_time - pygame.time.get_ticks()) / 1000, 2)
+            power_time = round((self.player.power_time - pygame.time.get_ticks()) / 1000, 1)
 
             if power_time >= 0 :
                 text, text_rect = text_utils.get_message(f"{self.player.power_type.capitalize()} is enabled for {power_time}", 20, WHITE_COLOR, 150, 50)

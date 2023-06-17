@@ -8,8 +8,13 @@ class Bullet:
         self.type = type 
         self.show = True
 
-    def update(self):
-        pass
+    def update(self, object):
+        if self.rect.colliderect(object.rect):
+            object.is_alive = False
+            self.is_alive = False
+
+
+            # pass
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)

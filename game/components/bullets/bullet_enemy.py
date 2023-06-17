@@ -16,8 +16,11 @@ class BulletEnemy(Bullet):
 
     def update(self, player):
         self.rect.y += self.SPEED
-        if self.rect.colliderect(player.rect):
-            player.is_alive = False
+        if self.rect.y >= SCREEN_HEIGHT:
+            self.is_alive = False
+
+        #if self.rect.colliderect(player.rect):
+         #   player.is_alive = False
 
 
         if not player.power_type == SHIELD_TYPE:
