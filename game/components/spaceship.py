@@ -1,5 +1,5 @@
 import pygame
-from game.utils.constants import SPACESHIP, SCREEN_WIDTH, SCREEN_HEIGHT, BULLET_SPACESHIP_TYPE
+from game.utils.constants import SPACESHIP, SCREEN_WIDTH, SCREEN_HEIGHT, BULLET_SPACESHIP_TYPE, DEFAULT_TYPE
 
 class Spaceship:    #para agregar imagen necesitamos posicion
     X_POS = (SCREEN_WIDTH // 2) - 40
@@ -18,6 +18,9 @@ class Spaceship:    #para agregar imagen necesitamos posicion
         self.rect.y = self.Y_POS
         self.is_alive = True
         self.shooting_time = 0
+        self.power_type = DEFAULT_TYPE
+        self.has_power = False
+        self.power_time = 0 
 
     def update(self, user_input, bullet_handler):
         #se debe mover solo si se oprime tecla
@@ -72,6 +75,16 @@ class Spaceship:    #para agregar imagen necesitamos posicion
         bullet_handler.add_bullet(BULLET_SPACESHIP_TYPE, self.rect.center)
         if self.shooting_time % self.SHOOTING_TIME == 0:
             bullet_handler.add_bullet(BULLET_SPACESHIP_TYPE, self.rect.center)
+
+
+    def set_power_image(self, image):
+        self.image = image
+        self.image = pygame.transform.scale(self.image, (40, 60))
+
+    def set_default_image(self):
+        self.image = SPACESHIP
+        self.image = pygame.transform.scale(self.image, (40, 60))
+
 
     def reset(self):
         self.rect.x = self.X_POS
