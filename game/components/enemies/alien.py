@@ -1,6 +1,6 @@
-import random
+
 import math 
-from game.utils.constants import SCREEN_WIDTH, SCREEN_HEIGHT
+from game.utils.constants import SCREEN_WIDTH
 from game.components.enemies.enemy import Enemy
 
 
@@ -15,6 +15,7 @@ class Alien(Enemy):
     INTERVAL = 200
     WAVE_AMPLITUDE = 5
     WAVE_FREQUENCY = 0.1
+    LIFE = 5
 
     def __init__(self, image):
         self.image = image
@@ -23,7 +24,9 @@ class Alien(Enemy):
         # self.rect.y = self.Y_POS
         # self.mov_x = random.choice(self.MOV_X)
         # self.index = 0  #contador de desplazamiento 
-        super().__init__(self.image)
+        
+        super().__init__(self.image, self.LIFE)
+        
 
     def move (self):
 

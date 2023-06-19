@@ -9,6 +9,7 @@ class BulletHandler:
         self.number_enemy_destroyed = 0
 
     def update(self, player, enemy_handler):
+        
         for bullet in self.bullets:
             if (not bullet.show):
                 self.remove_bullet(bullet)
@@ -17,9 +18,6 @@ class BulletHandler:
             elif bullet.type == BULLET_ENEMY_TYPE:
                 bullet.update(player)
                 
-
-
-
     def draw(self, screen):
         for bullet in self.bullets:
             bullet.draw(screen)

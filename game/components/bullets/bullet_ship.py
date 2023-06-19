@@ -16,9 +16,16 @@ class BulletShip(Bullet):
 
     def update(self, enemy_handler): #enemy implementation for review
         self.rect.y -= self.SPEED
+
+        if self.rect.y <= 0:
+            self.show = False
+
+
         for enemy in enemy_handler.enemies:
             if self.rect.colliderect(enemy.rect):
-                enemy.is_alive = False
-                self.show = False
-                enemy.is_destroyed = True
-           
+                enemy.life -= 1
+                if(enemy.life == 0):
+                    enemy.is_alive = False
+                    self.show = False
+                    enemy.is_destroyed = True
+            

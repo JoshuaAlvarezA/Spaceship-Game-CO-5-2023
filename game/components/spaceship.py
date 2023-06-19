@@ -21,6 +21,7 @@ class Spaceship:    #para agregar imagen necesitamos posicion
         self.power_type = DEFAULT_TYPE
         self.has_power = False
         self.power_time = 0 
+        self.life = 3
 
     def update(self, user_input, bullet_handler):
         #se debe mover solo si se oprime tecla
@@ -41,7 +42,7 @@ class Spaceship:    #para agregar imagen necesitamos posicion
     def draw (self, screen):
         screen.blit(self.image, self.rect)
     
-    # vamos a crear metodos para movimiento 
+    
     
     def move_left(self):
         #restriccion para que no salga de los limites 
@@ -50,7 +51,7 @@ class Spaceship:    #para agregar imagen necesitamos posicion
             self.rect.x = SCREEN_WIDTH - self.WIDTH
     
     def move_right(self):
-        #restriccion para que no salga de los limites 
+         
         self.rect.x += self.SPEED
         if self.rect.right > SCREEN_WIDTH:
             self.rect.x = 0
@@ -58,14 +59,14 @@ class Spaceship:    #para agregar imagen necesitamos posicion
 
 
     def move_up(self):
-        #restriccion para que no salga de los limites 
+        
         if self.rect.y > SCREEN_HEIGHT // 2:
             self.rect.y -= self.SPEED 
     
 
     
     def move_down(self):
-        #restriccion para que no salga de los limites 
+        
         if self.rect.y < SCREEN_HEIGHT - self.HEIGHT:
             self.rect.y += self.SPEED 
 
@@ -80,6 +81,7 @@ class Spaceship:    #para agregar imagen necesitamos posicion
         self.rect.x = self.X_POS
         self.rect.y = self.Y_POS
         self.is_alive = True    
+        self.life = 3
 
     def set_power_image(self, image):
         self.image = image

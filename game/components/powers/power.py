@@ -3,6 +3,8 @@ import random
 
 from game.utils.constants import SCREEN_WIDTH
 
+
+
 class Power: 
 
     POWER_WIDTH = 30
@@ -16,9 +18,12 @@ class Power:
         self.rect = self.image.get_rect()
         self.rect.x = random.randint(120, SCREEN_WIDTH - 120 )       #aparece el icono del poder en un lugar random, limitado con ancho +-120
         self.rect.y = 0
+        
 
     def update (self):
         self.rect.y += self.POWER_SPEED
+        
+            
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)

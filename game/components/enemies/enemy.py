@@ -13,8 +13,9 @@ class Enemy:
     MOV_X = [LEFT, RIGHT]
     INTERVAL = 100
     SHOTING_TIME = 30  #constante siempre 
+    
 
-    def __init__(self, image):
+    def __init__(self, image, life = 1):
         self.image = image
         self.rect = self.image.get_rect()
         self.rect.x = random.choice(self.X_POS_LIST)
@@ -24,10 +25,15 @@ class Enemy:
         self.is_alive = True
         self.is_destroyed = False
         self.shooting_time = 0   # puede tener el nombre, pero es atributo q puede cambiar 
+        self.life = life
+        self.has_power = False
+        
 
     def update (self, bullet_handler):
         if self.rect.y >= SCREEN_HEIGHT:
             self.is_alive = False
+            
+                
         self.shooting_time +=1
         self.move()
         self.shoot(bullet_handler)

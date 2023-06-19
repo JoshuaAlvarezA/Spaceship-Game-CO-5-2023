@@ -11,6 +11,7 @@ class Predator(Enemy):
     RIGHT = 'right'
     MOV_X = [LEFT, RIGHT]
     INTERVAL = 200
+    LIFE = 2
 
     def __init__(self, image):
         self.image = image
@@ -19,8 +20,9 @@ class Predator(Enemy):
         # self.rect.y = self.Y_POS
         # self.mov_x = random.choice(self.MOV_X)
         # self.index = 0  #contador de desplazamiento 
-        super().__init__(self.image)
-
+        
+        super().__init__(self.image, self.LIFE)
+        
     # def update (self):
     #     self.rect.y += self.SPEED_Y
     #     if self.mov_x == self.LEFT:

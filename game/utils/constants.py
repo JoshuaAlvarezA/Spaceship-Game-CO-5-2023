@@ -14,6 +14,7 @@ ICON = pygame.image.load(os.path.join(IMG_DIR, "Spaceship/spaceship.png"))
 SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))
 
 BG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))
+MAIN_MENU = pygame.image.load(os.path.join(IMG_DIR, 'Other/back_manu.jpg'))
 
 HEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))
 
@@ -38,4 +39,7 @@ WHITE_COLOR = (255, 255, 255)
 BULLET_ENEMY_TYPE = 'enemy'
 BULLET_SPACESHIP_TYPE = 'ally'
 #agregar bullet usuario aqui 
+
+
+
 

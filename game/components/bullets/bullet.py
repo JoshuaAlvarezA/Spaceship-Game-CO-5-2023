@@ -10,9 +10,16 @@ class Bullet:
 
     def update(self, object):
         if self.rect.colliderect(object.rect):
-            object.is_alive = False
-            self.is_alive = False
 
+            if self.show and not object.has_power:
+            #self.show = False
+
+                object.life -= 1
+                if object.life == 0:
+                    
+                    object.is_alive = False
+                    self.is_alive = False
+            self.show = False 
 
             # pass
 
